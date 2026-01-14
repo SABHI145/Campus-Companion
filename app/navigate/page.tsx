@@ -2,7 +2,12 @@
 
 import { Suspense } from "react"
 import { Header } from "@/components/header"
-import { MapSection } from "@/components/navigate/map-section"
+import dynamic from "next/dynamic"
+
+const MapSection = dynamic(
+  () => import("@/components/navigate/map-section").then((m) => m.MapSection),
+  { ssr: false }
+)
 import { SearchBar } from "@/components/navigate/search-bar"
 import { RouteInfo } from "@/components/navigate/route-info"
 import { Footer } from "@/components/footer"
