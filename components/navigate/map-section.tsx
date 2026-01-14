@@ -16,6 +16,10 @@ L.Icon.Default.mergeOptions({
 })
 
 export function MapSection({ route }: { route: any }) {
+
+  // ✅ Prevent SSR crash on Vercel
+  if (typeof window === "undefined") return null
+
   return (
     <div className="relative w-full h-96 md:h-full md:min-h-96 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl border border-border overflow-hidden">
 
@@ -45,5 +49,13 @@ export function MapSection({ route }: { route: any }) {
         </div>
       )}
     </div>
+  export function MapSection({ route }: { route: any }) {
+
+  if (typeof window === "undefined") return null
+
+  return (
+    ...
+  )
+}
   )
 }
